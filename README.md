@@ -1,3 +1,51 @@
+
+# As a summary:
+ Currently, there are four packages in my github repositories:
+## [Barry-Liang/universal_robot](https://github.com/Barry-Liang/universal_robot):
+Forked from [ros-industrial's official package](https://github.com/ros-industrial/universal_robot), I have fixed  some bugs in the ur5_e_moveit_config to make it avilable. Also, the urdf files in this packages can be used to generate ikfast packages. Please pay attention that there are many branches, if you are stick in ros-melodic, you should try  
+
+```bash
+$ git clone -b melodic-devel https://github.com/Barry-Liang/universal_robot.git
+```
+
+
+## [Barry-Liang/my_universal_robot](https://github.com/Barry-Liang/my_universal_robot): 
+Copied from [fmauch's package](https://github.com/fmauch/universal_robot) last year, I have fixed  some bugs in the ur5_e_moveit_config to make it avilable. However, the urdf files in this packages can not be used to generate ikfast packages.
+-----
+
+## [Barry-Liang/Universal_Robots_Ros_Driver](https://github.com/Barry-Liang/Universal_Robots_ROS_Driver): 
+Forked from the [UniversalRobots' s offical driver package](github.com/UniversalRobots/Universal_Robots_ROS_Driver).
+
+However, it will make error when combined with the official **universial_robot** package from ros-industrial.
+
+```bash
+ error: ‘ur_msgs::SetPayload::Request {aka struct ur_msgs::SetPayloadRequest_<std::allocator<void> >}’ has no member named ‘center_of_gravity’
+             << " set_payload(" << req.payload << ", [" << req.center_of_gravity.x << ", " << req.center_of_gravity.y
+                                                    
+```
+
+
+It will make other error when it is built with [Barry-Liang/my_universal_robot](https://github.com/Barry-Liang/my_universal_robot).
+
+According to the original readme, until now, it should be built with fmauch's calibration-devel.
+
+```bash
+# clone fork of the description. This is currently necessary, until the changes are merged upstream.
+$ git clone -b calibration_devel https://github.com/fmauch/universal_robot.git src/fmauch_universal_robot
+```
+
+
+## [Barry-Liang/my_Universal_Robots_Ros_Driver](https://github.com/Barry-Liang/my_Universal_Robots_Ros_Driver): 
+
+Copied from a early version of [UniversalRobots' s offical driver package](github.com/UniversalRobots/Universal_Robots), which can be combined-built with the offical universal robots package---> [Barry-Liang/universal_robot](https://github.com/Barry-Liang/universal_robot).
+
+
+
+------
+
+
+
+
 # Universal Robot
 
 [![Build Status](http://build.ros.org/job/Kdev__universal_robot__ubuntu_xenial_amd64/badge/icon)](http://build.ros.org/job/Kdev__universal_robot__ubuntu_xenial_amd64)
